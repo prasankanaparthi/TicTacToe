@@ -3,8 +3,11 @@ from flask import Flask, render_template, jsonify, request
 from uuid import uuid4
 from game_logic import TicTacToeGame, MinimaxAI
 from typing import Dict
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+
+load_dotenv()
 
 # In-memory games store (simple). Format: games[g_id] = TicTacToeGame()
 games: Dict[str, TicTacToeGame] = {}
