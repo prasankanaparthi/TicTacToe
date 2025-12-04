@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>🔷 Tic-Tac-Toe — Pro UI</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="page">
+    <header class="topbar">
+      <div class="brand">
+        <svg class="logo" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12l6-8 6 8 6-8v12H3z"/></svg>
+        <h1>Tic-Tac-Toe</h1>
+      </div>
+
+      <div class="controls">
+        <label class="select">
+          <span class="label">AI</span>
+          <select id="aiMode" aria-label="AI difficulty">
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard" selected>Hard</option>
+          </select>
+        </label>
+
+        <label class="select">
+          <span class="label">Start</span>
+          <select id="startPlayer" aria-label="Starting player">
+            <option value="X" selected>Player (X)</option>
+            <option value="O">AI (O)</option>
+          </select>
+        </label>
+
+        <button id="newGame" class="btn primary" aria-label="New game">New Game</button>
+        <button id="resetBtn" class="btn" aria-label="Reset board">Reset</button>
+
+        <button id="soundToggle" class="icon-btn" aria-pressed="false" title="Toggle sounds">
+          <svg viewBox="0 0 24 24" class="icon-sound" aria-hidden="true"><path d="M5 9v6h4l5 4V5L9 9H5z"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <section class="game-card" role="application" aria-label="Tic Tac Toe game">
+      <div class="info-row">
+        <div class="scoreboard" aria-live="polite">
+          <div class="player player-x">
+            <div class="avatar avatar-x" aria-hidden="true"></div>
+            <div class="meta"><div class="name">You</div><div class="count" id="scoreX">0</div></div>
+          </div>
+          <div class="versus">vs</div>
+          <div class="player player-o">
+            <div class="avatar avatar-o" aria-hidden="true"></div>
+            <div class="meta"><div class="name">AI</div><div class="count" id="scoreO">0</div></div>
+          </div>
+        </div>
+
+        <div class="status" id="status" role="status" aria-live="polite">Press New Game</div>
+      </div>
+
+      <div class="board-wrap">
+        <div class="board" id="board" role="grid" aria-label="Game board">
+          <!-- 9 cells - created inline for a11y -->
+          <button class="cell" data-index="0" role="gridcell" aria-label="cell 1" tabindex="0"></button>
+          <button class="cell" data-index="1" role="gridcell" aria-label="cell 2" tabindex="0"></button>
+          <button class="cell" data-index="2" role="gridcell" aria-label="cell 3" tabindex="0"></button>
+          <button class="cell" data-index="3" role="gridcell" aria-label="cell 4" tabindex="0"></button>
+          <button class="cell" data-index="4" role="gridcell" aria-label="cell 5" tabindex="0"></button>
+          <button class="cell" data-index="5" role="gridcell" aria-label="cell 6" tabindex="0"></button>
+          <button class="cell" data-index="6" role="gridcell" aria-label="cell 7" tabindex="0"></button>
+          <button class="cell" data-index="7" role="gridcell" aria-label="cell 8" tabindex="0"></button>
+          <button class="cell" data-index="8" role="gridcell" aria-label="cell 9" tabindex="0"></button>
+
+          <!-- animated winning line overlay -->
+          <svg class="win-line" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <line id="winLineSvg" x1="0" y1="0" x2="0" y2="0" stroke-linecap="round" stroke-width="10" stroke="var(--accent)" opacity="0"/>
+          </svg>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <small>Made with ❤️ • Responsive • Keyboard accessible</small>
+      </footer>
+    </section>
+  </main>
+
+  <canvas id="confettiCanvas" class="confetti" aria-hidden="true"></canvas>
+
+  <script src="/static/script.js" defer></script>
+</body>
+</html>
